@@ -30,7 +30,7 @@ def validate(cls, instance_or_dict, partial=False, strict=False, context=None):
     errors = {}
 
     # Function for validating an individual field
-    def field_converter(field, value):
+    def field_converter(field, value, mapping=None):
         value = field.to_native(value)
         field.validate(value)
         return value

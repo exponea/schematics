@@ -152,7 +152,7 @@ class ListType(MultiType):
         except TypeError:
             return [value]
 
-    def to_native(self, value, context=None):
+    def to_native(self, value, context=None, mapping=None):
         items = self._force_list(value)
 
         return [self.field.to_native(item, context) for item in items]
@@ -235,7 +235,7 @@ class DictType(MultiType):
     def model_class(self):
         return self.field.model_class
 
-    def to_native(self, value, safe=False, context=None):
+    def to_native(self, value, safe=False, context=None, mapping=None):
         if value == EMPTY_DICT:
             value = {}
 

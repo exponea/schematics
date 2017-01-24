@@ -288,7 +288,7 @@ class Model(object):
         """
         return convert(self.__class__, raw_data, **kw)
 
-    def to_native(self, role=None, context=None):
+    def to_native(self, role=None, context=None, mapping=None):
         return to_native(self.__class__, self, role=role, context=context)
 
     def to_primitive(self, role=None, context=None):
